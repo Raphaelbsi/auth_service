@@ -8,12 +8,14 @@ default: &default
 
 development:
   <<: *default
-  database: auth_service_db
+  database: <%= ENV['DATABASE_NAME'] %>
 
 test:
   <<: *default
-  database: auth_service_test_db
+  database: auth_service_test
 
 production:
   <<: *default
-  database: auth_service_production_db
+  database: auth_service_production
+  username: auth_service
+  password: <%= ENV['AUTH_SERVICE_DATABASE_PASSWORD'] %>
